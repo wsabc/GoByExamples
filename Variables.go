@@ -12,9 +12,9 @@ func main() {
 	var d = true
 	fmt.Println(d)
 
-	var e int
+	var e int // zero-value
 	fmt.Println(e)
 
-	f := "short"
+	f := "short" // shorthand of var f string = "short"
 	fmt.Println(f)
 }
