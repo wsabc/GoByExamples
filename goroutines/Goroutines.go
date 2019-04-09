@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func f(s string) {
@@ -41,4 +42,17 @@ func main() {
 	fmt.Println(<-bq)
 	fmt.Println(<-bq)
 
+	done := make(chan bool, 1)
+	go work(done)
+
+	// main thread would block until someone wrote into the channel
+	<-done
+
+}
+
+func work(done chan bool) {
+	fmt.Println("begin working...")
+	time.Sleep(time.Second)
+	fmt.Println("done")
+	done <- true
 }
