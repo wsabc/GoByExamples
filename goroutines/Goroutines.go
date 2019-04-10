@@ -42,6 +42,12 @@ func main() {
 	fmt.Println(<-bq)
 	fmt.Println(<-bq)
 
+	done := make(chan bool, 1)
+	go work(done)
+
+	// main thread would block until someone wrote into the channel
+	<-done
+
 	pings := make(chan string, 1)
 	pongs := make(chan string, 1)
 	ping(pings, "passed string")
@@ -159,4 +165,11 @@ func ping(pings chan<- string, msg string) {
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg
+}
+
+func work(done chan bool) {
+	fmt.Println("begin working...")
+	time.Sleep(time.Second)
+	fmt.Println("done")
+	done <- true
 }
