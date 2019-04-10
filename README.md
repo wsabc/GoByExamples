@@ -14,6 +14,8 @@
 * 接口隐式实现不好,代码关系不明朗
 * type关键字多余?struct,interface和int差不多啊
 * 返回值和error都返回,有什么意义?不是互相说明的?省略了try-catch倒不错
-* 类型转换e.(*anError)语法变态
+* 类型转换e.(*anError)语法变态,类似的有dat["num"].(float64)
 * 时间格式化api太恶心--2006-01-02T15:04:05(612345)
 * Channel的操作符<-太不好用了,为何不提供一个关键字,类似make或者delete这样的
+* Panic/Defer vs Error/Finally
+* 
