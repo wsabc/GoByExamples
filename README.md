@@ -18,4 +18,3 @@
 * 时间格式化api太恶心--2006-01-02T15:04:05(612345)
 * Channel的操作符<-太不好用了,为何不提供一个关键字,类似make或者delete这样的
 * Panic/Defer vs Error/Finally
-* 
